@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+//   import PlacesAutocomplete from 'react-places-autocomplete';
 
 
 class AddLocation extends React.Component {
@@ -76,7 +77,17 @@ class AddLocation extends React.Component {
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label >Location Name</Label>                             
-                        <Input type="text" errortext={this.state.nameError} id="name" name="name" onChange={this.handleChangeText} value={this.state.locationName}/><br/>
+                        <Input type="text" errortext={this.state.nameError} id="name" name="name" onChange={this.handleChangeText} value={this.state.nameOfTheLocation}/><br/>
+                        {/* <PlacesAutocomplete
+                            style={{
+                                width: '100%',
+                                height: '40px',
+                                paddingLeft: '16px',
+                                marginTop: '2px',
+                                marginBottom: '100px'
+                            }}
+                            value={ this.state.nameOfTheLocation} onChange={this.handleChangeText}
+                        /> */}
                     </FormGroup>
                     {this.state.nameError?<Alert color="primary">{this.state.nameError}</Alert>: ``}
                     <Button type="submit" color="primary" value="submit">Submit</Button><br/><br/>

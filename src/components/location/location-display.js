@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import LocationSearchBar from './location-search-bar'
+import {Link} from 'react-router-dom'
 
 class LocationDisplay extends React.Component{
     constructor(props){
@@ -45,10 +46,22 @@ class LocationDisplay extends React.Component{
           }) 
     }
 
-    handleInputChange = (event)=>{
-        console.log(event.target.value );
+    // handleInputChange = (event)=>{
+    //     console.log(event.target.value );
+    //     this.setState({
+    //         [event.target.name] : event.target.value       
+    //     })
+    // }
+    editLocation = (data)=>{ 
+        console.log(data)
+       let editedData = this.state.filteredLocations.map(location=>{
+            if(location._id === data._id){
+                Object.assign(location, data)
+            }            
+        })
         this.setState({
-            [event.target.name] : event.target.value       
+            locations:editedData,
+            filteredLocations: editedData
         })
     }
 
@@ -82,7 +95,14 @@ class LocationDisplay extends React.Component{
                 <LocationSearchBar searchHandle={this.searchHandle}/>
                 <h3>Listing Locations- {this.state.filteredLocations.length}</h3>
                 <ul>
-                {this.state.filteredLocations.map((location)=> <li key={location._id}>{location.name}<button onClick={()=>this.handleDelete(location._id)}> Delete </button></li>)}
+                {this.state.filteredLocations.map((location)=> <li key={location._id}>{location.name}<button><Link to={{
+                    pathname:'location/edit',
+                    state:{
+                        id:location._id,
+                        name:location.name
+                    },
+                    edit:this.editLocation
+                }}>Edit</Link></button><button onClick={()=>this.handleDelete(location._id)}> Delete </button></li>)}
                 </ul>
             </div>
         )

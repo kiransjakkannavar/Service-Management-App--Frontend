@@ -14,7 +14,7 @@ class Vendor extends Component {
     }
 
     componentDidMount(){
-      axios.get('http://localhost:3001/admin/services').then(res =>{
+      axios.get('http://localhost:3001/service').then(res =>{
         let arr = []
         res.data.map(dat =>{
           arr.push({label: dat.name, _id: dat._id, value: false})

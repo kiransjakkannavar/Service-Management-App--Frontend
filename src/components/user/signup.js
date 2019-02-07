@@ -74,10 +74,12 @@ class SignUp extends React.Component{
                 mobile: this.state.mobile,
                 address: this.state.address,
                 userlocation: this.state.location,
+                role: 'vendor',
+                vendor: {
                 companyName: this.state.companyName,
                 service: this.state.service,
                 vendorServiceLocation: this.state.location,
-                role: 'vendor'
+                }
             }
             console.log(vendorDetails)
                 

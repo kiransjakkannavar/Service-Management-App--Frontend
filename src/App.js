@@ -8,7 +8,7 @@ import EditLocation from './components/location/edit-location'
 import Edit from './components/service/edit'
 import AddService from './components/service/addService';
 import SignUp from './components/user/signup'
-import SignIn from './components/sign-in/sign'
+// import SignIn from './components/sign-in/sign'
 
 
 class App extends Component {
@@ -20,8 +20,8 @@ class App extends Component {
             <p><span><Link to= '/'>Home</Link></span>&nbsp;&nbsp;
         
             <span><Link to= '/admin'>Admin</Link></span>&nbsp;&nbsp;
-            <span><Link to= '/user/signup'>User SignUp</Link></span>&nbsp;&nbsp;
-            <span><Link to='/login'>Login</Link></span></p>
+            <span><Link to= '/user/signup'>User SignUp</Link></span></p>
+            {/* <span><Link to='/login'>Login</Link></span></p> */}
 
             <Route path='/' component={Home} exact />
             <Route path='/admin' component={ServiceIndex}/>
@@ -31,7 +31,7 @@ class App extends Component {
             <Route path='/admin/location/new' component={AddLocation} exact/>
             <Route path='/admin/location/edit' component={EditLocation} exact/>
             <Route path='/user/signup' component = {SignUp}/>
-            <Route path='/login' component={SignIn}/>
+            {/* <Route path='/login' component={SignIn}/> */}
           </div>  
           </BrowserRouter> 
       

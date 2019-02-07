@@ -34,11 +34,11 @@ export default class SignIn extends React.Component{
 
     render(){
        return( <div>
-            <div style={{textAlign:"left"}}>
+            <div style={{textAlign:"center"}}>
                 <h2> Get Instant Access to Reliable Services </h2>
             </div>
-            <div style={{textAlign:"left"}}>
-            <h3>Log In</h3>
+            <div style={{textAlign:"center"}}>
+            <h3>Log In</h3><br/>
             <form onSubmit={this.submitHandle}>
                 <label><b>Email</b>
                     <input type='text' name='email' value={this.state.email} onChange={this.inputHandle}/>
